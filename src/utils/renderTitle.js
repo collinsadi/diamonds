@@ -1,4 +1,5 @@
 const figlet = require("figlet");
+const colors = require("colors");
 
 function renderTitle() {
   const figletConfig = {
@@ -9,7 +10,7 @@ function renderTitle() {
     whitespaceBreak: true,
   };
 
-  console.log(figlet.textSync("Diamonds", figletConfig));
+  console.log(figlet.textSync("Diamonds", figletConfig).green);
 }
 
 module.exports = renderTitle;
