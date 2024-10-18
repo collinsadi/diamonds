@@ -1,5 +1,5 @@
 {
-  "name": "diamonds",
+  "name": "@collinsadi/diamonds",
   "version": "1.0.0",
   "description": "A Package for Scaffolding EIP2535 Diamonds",
   "main": "index.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/collinsadi/scaffold-EIP2535.git"
+    "url": "git+https://github.com/collinsadi/diamonds.git"
   },
   "keywords": [
     "eip2535"
@@ -19,9 +19,9 @@
   "author": "Collins Adi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/collinsadi/scaffold-EIP2535/issues"
+    "url": "https://github.com/collinsadi/diamonds/issues"
   },
-  "homepage": "https://github.com/collinsadi/scaffold-EIP2535#readme",
+  "homepage": "https://github.com/collinsadi/diamonds#readme",
   "dependencies": {
     "chalk": "^5.3.0",
     "colors": "^1.4.0",
