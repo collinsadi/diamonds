@@ -4,9 +4,9 @@ const {
   scaffoldDefaultHardatTypeScript,
 } = require("./ScaffoldDefaultHardhat");
 
-const scaffoldDefault = (projectName, framework, language) => {
+const scaffoldDefault = async (projectName, framework, language) => {
   if (framework === "Foundry") {
-    scaffoldDefaultFoundry(projectName);
+    await scaffoldDefaultFoundry(projectName);
   } else if (framework === "Hardhat" && language === "JavaScript") {
     scaffoldDefaultHardatJavaScript(projectName);
   } else if (framework === "Hardhat" && language === "TypeScript") {
