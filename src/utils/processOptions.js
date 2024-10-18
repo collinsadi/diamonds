@@ -6,7 +6,7 @@ const processOptions = async (options) => {
   const { projectName, framework, language, template } = options;
 
   if (template === "Default") {
-    scaffoldDefault(projectName, framework);
+    scaffoldDefault(projectName, framework, language);
   }
 };
 
