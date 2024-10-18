@@ -5,7 +5,7 @@ const templateFolder = path.join(
   "..",
   "..",
   "templates",
-  "default",
+  "ERC20",
   "foundry"
 );
 
