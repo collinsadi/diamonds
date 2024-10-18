@@ -5,8 +5,8 @@ const templateFolder = path.join(
   "..",
   "..",
   "templates",
-  "default",
-  "foundry"
+  "ERC20",
+  "hardhat"
 );
 
 exports.scaffoldERC20HardhatJavascript = (name) => {
