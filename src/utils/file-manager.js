@@ -1,36 +1,35 @@
-const fs = require("fs");
+const fs = require("fs-extra");
 const path = require("path");
+const colors = require("colors");
 
-const templateFolder = path.join(__dirname, "templates");
+const folderExists = async (dir) => {
+  try {
+    const exists = await fs.pathExists(dir);
+    return exists;
+  } catch (err) {
+    console.error(err);
+    return false;
+  }
+};
 
-/**
- * Copies files from the template directory to the target directory.
- *
- * @param {string} templateDir - The path to the template directory in the npm package.
- * @param {string} targetDir - The path to the user's specified directory.
- */
-function copyTemplateFiles(templateDir, targetDir) {
-  if (!fs.existsSync(targetDir)) {
-    fs.mkdirSync(targetDir, { recursive: true });
+const copyTemplateFiles = async (templateDir, name) => {
+  const targetDir = path.join(process.cwd(), name);
+
+  const dirExists = await folderExists(targetDir);
+
+  if (dirExists) {
+    console.log("Directory Already Exists".red);
+
+    return;
   }
 
-  fs.readdirSync(templateDir).forEach((file) => {
-    const templateFilePath = path.join(templateDir, file);
-    const targetFilePath = path.join(targetDir, file);
-
-    if (fs.statSync(templateFilePath).isDirectory()) {
-      // If the current file is a directory, recursively copy files inside it
-      copyTemplateFiles(templateFilePath, targetFilePath);
-    } else {
-      // Copy file to target directory
-      fs.copyFileSync(templateFilePath, targetFilePath);
-    }
-  });
-}
-
-// Example usage
-// Adjust if needed
-// const userTargetFolder = '/path/to/new/project';  // User-specified folder
-// copyTemplateFiles(templateFolder, userTargetFolder);
+  try {
+    await fs.copy(templateDir, targetDir);
+    console.log(`🚀 Project created successfully.`.green);
+    console.log(`cd ${name}.`.green);
+  } catch (err) {
+    console.error("❌ Error creating project:".red, err);
+  }
+};
 
 module.exports = copyTemplateFiles;

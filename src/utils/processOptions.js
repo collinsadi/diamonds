@@ -7,7 +7,7 @@ const processOptions = async (options) => {
   const { projectName, framework, language, template } = options;
 
   if (template === "Default") {
-    scaffoldDefault(projectName, framework, language);
+    await scaffoldDefault(projectName, framework, language);
   } else if (template === "ERC20") {
     scaffoldERC20(projectName, framework, language);
   }
