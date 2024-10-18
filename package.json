@@ -1,0 +1,26 @@
+{
+  "name": "eip3523-scaffold",
+  "version": "1.0.0",
+  "description": "A Package for Scaffolding EIP2535 Diamonds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/collinsadi/scaffold-EIP2535.git"
+  },
+  "keywords": [
+    "eip2535"
+  ],
+  "author": "Collins Adi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/collinsadi/scaffold-EIP2535/issues"
+  },
+  "homepage": "https://github.com/collinsadi/scaffold-EIP2535#readme",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "inquirer": "^12.0.0"
+  }
+}
