@@ -2,6 +2,8 @@
 
 **@collinsadi/diamonds** is a CLI tool that helps developers scaffold an EIP-2535 diamond structure with ease. Users can choose between Hardhat or Foundry as their development environment, and they can select between templates like "ERC20", "ERC721", or a default Diamond template to kickstart their smart contract development.
 
+![Screenshot](./image.png)
+
 ## Features
 
 - Scaffold **EIP-2535 Diamond** architecture.
