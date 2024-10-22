@@ -1,6 +1,6 @@
-# @collinsadi/diamonds
+# diamondscaffold
 
-**@collinsadi/diamonds** is a CLI tool that helps developers scaffold an EIP-2535 diamond structure with ease. Users can choose between Hardhat or Foundry as their development environment, and they can select between templates like "ERC20", "ERC721", or a default Diamond template to kickstart their smart contract development.
+**diamondscaffold** is a CLI tool that helps developers scaffold an EIP-2535 diamond structure with ease. Users can choose between Hardhat or Foundry as their development environment, and they can select between templates like "ERC20", "ERC721", or a default Diamond template to kickstart their smart contract development.
 
 ![Screenshot](./image.png)
 
@@ -17,7 +17,7 @@
 You can install the package globally via npm to use it as a CLI tool.
 
 ```bash
-npm install -g @collinsadi/diamonds
+npm install -g diamondscaffold
 ```
 
 ## Usage
@@ -112,7 +112,7 @@ If you scaffold with Foundry, these commands will be available:
 
 ## Contribution
 
-Contributions to **@collinsadi/diamonds** are welcome! If you'd like to contribute:
+Contributions to **diamondscaffold** are welcome! If you'd like to contribute:
 
 1. Fork the repository.
 2. Create a feature branch (`git checkout -b feature-branch`).
