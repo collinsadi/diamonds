@@ -1,5 +1,5 @@
 {
-  "name": "@collinsadi/diamonds",
+  "name": "diamondscaffold",
   "version": "1.0.0",
   "description": "A Package for Scaffolding EIP2535 Diamonds",
   "main": "index.js",
