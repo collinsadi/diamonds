@@ -1,0 +1,6 @@
+[submodule "src/templates/default/foundry/lib/forge-std"]
+	path = src/templates/default/foundry/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
+[submodule "src/templates/default/foundry/lib/solidity-stringutils"]
+	path = src/templates/default/foundry/lib/solidity-stringutils
+	url = https://github.com/Arachnid/solidity-stringutils
