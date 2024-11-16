@@ -1,5 +1,6 @@
 const path = require("path");
 const colors = require("colors");
+const copyTemplateFiles = require("../../utils/file-manager");
 const templateFolder = path.join(
   __dirname,
   "..",
@@ -9,11 +10,8 @@ const templateFolder = path.join(
   "foundry"
 );
 
-const scaffoldERC20Foundry = (name) => {
-  console.log(
-    `You want to Scaffold a Diamond Contract with the ERC20 Foundry Template`
-      .yellow
-  );
+const scaffoldERC20Foundry = async (name) => {
+  await copyTemplateFiles(templateFolder, name);
 };
 
 module.exports = scaffoldERC20Foundry;
