@@ -6,7 +6,7 @@ const templateFolder = path.join(
   "..",
   "..",
   "templates",
-  "ERC20",
+  "ERC721",
   "foundry"
 );
 

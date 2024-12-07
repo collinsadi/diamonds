@@ -1,6 +1,6 @@
 {
   "name": "diamondscaffold",
-  "version": "1.0.3",
+  "version": "1.0.6",
   "description": "A Package for Scaffolding EIP2535 Diamonds",
   "main": "index.js",
   "scripts": {

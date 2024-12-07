@@ -29,13 +29,13 @@ const promptUser = async () => {
         choices: ["JavaScript", "TypeScript"],
         when: (answers) => answers.framework === "Hardhat",
       },
-      {
-        type: "confirm",
-        name: "installDependencies",
-        message:
-          "Do you want to install project dependencies ? (you must have an active internet connection)",
-        when: (answers) => answers.framework === "Hardhat",
-      },
+      // {
+      //   type: "confirm",
+      //   name: "installDependencies",
+      //   message:
+      //     "Do you want to install project dependencies ? (you must have an active internet connection)",
+      //   when: (answers) => answers.framework === "Hardhat",
+      // },
     ];
 
     const answers = await prompt(questions);
