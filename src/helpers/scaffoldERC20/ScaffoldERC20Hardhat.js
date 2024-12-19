@@ -1,5 +1,6 @@
 const path = require("path");
 const colors = require("colors");
+const copyTemplateFiles = require("../../utils/file-manager");
 const templateFolder = path.join(
   __dirname,
   "..",
@@ -10,15 +11,9 @@ const templateFolder = path.join(
 );
 
 exports.scaffoldERC20HardhatJavascript = (name) => {
-  console.log(
-    `You want to Scaffold a Diamond Contract with the ERC20 Hardhat Javascript  Template: Template Not Available Yet`
-      .yellow
-  );
+  copyTemplateFiles(path.join(templateFolder, "javascript"), name);
 };
 
 exports.scaffoldERC20HardhatTypescript = (name) => {
-  console.log(
-    `You want to Scaffold a Diamond Contract with the ERC20 Hardhat Typescript  Template:  Template Not Available Yet`
-      .yellow
-  );
+  copyTemplateFiles(path.join(templateFolder, "typescript"), name);
 };

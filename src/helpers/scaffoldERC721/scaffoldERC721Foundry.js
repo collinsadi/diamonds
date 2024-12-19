@@ -1,18 +1,17 @@
 const path = require("path");
 const colors = require("colors");
+const copyTemplateFiles = require("../../utils/file-manager");
 const templateFolder = path.join(
   __dirname,
   "..",
   "..",
   "templates",
-  "default",
+  "ERC721",
   "foundry"
 );
-const fs = require("fs-extra");
-const copyTemplateFiles = require("../../utils/file-manager");
 
-const scaffoldDefaultFoundry = async (name) => {
+const scaffoldERC20Foundry = async (name) => {
   await copyTemplateFiles(templateFolder, name);
 };
 
-module.exports = scaffoldDefaultFoundry;
+module.exports = scaffoldERC20Foundry;
