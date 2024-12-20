@@ -112,13 +112,11 @@ If you scaffold with Foundry, these commands will be available:
 
 ## Contribution
 
-Contributions to **diamondscaffold** are welcome! If you'd like to contribute:
+Contributions to **diamondscaffold** are welcome! If you'd like to contribute checkout:
 
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-branch`).
-3. Commit your changes (`git commit -m 'Add new feature'`).
-4. Push to the branch (`git push origin feature-branch`).
-5. Open a Pull Request.
+1. [Contribution guildlines](https://github.com/collinsadi/diamonds/blob/main/CONTRIBUTION_GUIDELINES.md)  
+2. [Git guildlines](https://github.com/collinsadi/diamonds/blob/main/GIT_GUIDELINES.md)  
+3. [Issues guildlines](https://github.com/collinsadi/diamonds/blob/main/ISSUES_GUIDELINES.md)  
 
 ## License
 

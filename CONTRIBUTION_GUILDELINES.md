@@ -14,7 +14,7 @@ Thank you for contributing to this project! 🎉 Together, we can build somethin
 - Clone your forked repository to your local machine:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SafeSwap.git
+git clone https://github.com/YOUR_USERNAME/diamonds.git
 ```
 
 ---
@@ -24,7 +24,7 @@ git clone https://github.com/YOUR_USERNAME/SafeSwap.git
 - Optionally, add the main repository as an upstream remote to easily fetch updates and handle conflicts:
 
 ```bash
-git remote add upstream https://github.com/KaizeNodeLabs/SafeSwap.git
+git remote add upstream https://github.com/collinsadi/diamonds.git
 ```
 
 ---
