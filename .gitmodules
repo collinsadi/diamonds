@@ -7,3 +7,6 @@
 [submodule "src/templates/ERC20/foundry/lib/openzeppelin-contracts"]
 	path = src/templates/ERC20/foundry/lib/openzeppelin-contracts
 	url = https://github.com//OpenZeppelin/openzeppelin-contracts
+[submodule "src/templates/ERC20/foundry/lib/forge-std"]
+	path = src/templates/ERC20/foundry/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
