@@ -13,3 +13,6 @@
 [submodule "src/templates/ERC20/foundry/lib/solidity-stringutils"]
 	path = src/templates/ERC20/foundry/lib/solidity-stringutils
 	url = https://github.com/Arachnid/solidity-stringutils
+[submodule "src/templates/ERC721/foundry/lib/forge-std"]
+	path = src/templates/ERC721/foundry/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
