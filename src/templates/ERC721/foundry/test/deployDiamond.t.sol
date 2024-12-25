@@ -6,7 +6,7 @@ import "../contracts/facets/DiamondCutFacet.sol";
 import "../contracts/facets/DiamondLoupeFacet.sol";
 import "../contracts/facets/OwnershipFacet.sol";
 
-import "../contracts/facets/ERC20Facet.sol";
+import "../contracts/facets/ERC721Facet.sol";
 import "../contracts/Diamond.sol";
 
 import "./helpers/DiamondUtils.sol";
@@ -18,16 +18,16 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
     DiamondCutFacet dCutFacet;
     DiamondLoupeFacet dLoupe;
     OwnershipFacet ownerF;
-    ERC20Facet erc20Facet;
+    ERC721Facet erc721Facet;
 
 
     function testDeployDiamond() public {
         //deploy facets
         dCutFacet = new DiamondCutFacet();
-        diamond = new Diamond(address(this), address(dCutFacet), "Test Token", "TST", 18);
+        diamond = new Diamond(address(this), address(dCutFacet));
         dLoupe = new DiamondLoupeFacet();
         ownerF = new OwnershipFacet();
-        erc20Facet = new ERC20Facet();
+        erc721Facet = new ERC721Facet();
        
 
         //upgrade diamond with facets
@@ -53,9 +53,9 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
 
         cut[2] = (
             FacetCut({
-                facetAddress: address(erc20Facet),
+                facetAddress: address(erc721Facet),
                 action: FacetCutAction.Add,
-                functionSelectors: generateSelectors("ERC20Facet")
+                functionSelectors: generateSelectors("ERC721Facet")
             })
         );
 
