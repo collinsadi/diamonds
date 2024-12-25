@@ -1,12 +1,13 @@
 [profile.default]
 src = 'contracts'
 out = 'out'
+remappings = [
+    "forge-std/=lib"
+]
 libs = [
     'lib'
 ]
-remappings = [
-    "forge-std/=lib/forge-std/src/"
-]
+
 ffi=true
 verbosity=5
 
