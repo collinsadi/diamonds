@@ -29,7 +29,7 @@ import {IERC20Events} from "../interfaces/IERC20Events.sol";
 
     function decimals() public view virtual returns (uint8) {
      LibDiamond.DiamondStorage storage l = LibDiamond.diamondStorage();
-     return l.decimal;
+     return l.decimals;
     }
 
     /**
