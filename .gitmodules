@@ -19,3 +19,6 @@
 [submodule "src/templates/ERC721/foundry/lib/solidity-stringutils"]
 	path = src/templates/ERC721/foundry/lib/solidity-stringutils
 	url = https://github.com/Arachnid/solidity-stringutils
+[submodule "src/templates/ERC721/foundry/lib/openzeppelin-contracts"]
+	path = src/templates/ERC721/foundry/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
