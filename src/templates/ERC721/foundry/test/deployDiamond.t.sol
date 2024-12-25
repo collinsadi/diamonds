@@ -67,56 +67,48 @@ contract DiamondDeployer is DiamondUtils, IDiamondCut {
         //call a function
         DiamondLoupeFacet(address(diamond)).facetAddresses();
         
-        
         string memory name = "Test Token";
         string memory symbol = "TST";
-        uint8 decimals = 18;
-        uint256 initialSupply = 1000000 * 10**uint256(decimals);
-
+        uint256 tokenId = 1;
+        
         // Check name
-        assertEq(ERC20Facet(address(diamond)).name(), name);
-
+        assertEq(ERC721Facet(address(diamond)).name(), name);
+        
         // Check symbol
-        assertEq(ERC20Facet(address(diamond)).symbol(), symbol);
-
-        // Check decimals
-        assertEq(ERC20Facet(address(diamond)).decimals(), decimals);
-
-        // Check total supply
-        assertEq(ERC20Facet(address(diamond)).totalSupply(), 0);  // Initially, total supply should be 0
-
+        assertEq(ERC721Facet(address(diamond)).symbol(), symbol);
+        
         // Check initial balance
-        assertEq(ERC20Facet(address(diamond)).balanceOf(address(this)), 0);  // Initially, balance should be 0
-
-        // Mint initial supply to this contract
+        assertEq(ERC721Facet(address(diamond)).balanceOf(address(this)), 0);  // Initially, balance should be 0
+        
+        // Mint a token to this contract
         vm.prank(address(this));
-        ERC20Facet(address(diamond)).mint(address(this), initialSupply);
-
-        // Check updated total supply
-        assertEq(ERC20Facet(address(diamond)).totalSupply(), initialSupply);
-
+        ERC721Facet(address(diamond)).safeMint(address(this), tokenId);
+        
         // Check updated balance
-        assertEq(ERC20Facet(address(diamond)).balanceOf(address(this)), initialSupply);
-
+        assertEq(ERC721Facet(address(diamond)).balanceOf(address(this)), 1);
+        
+        // Check owner of the token
+        assertEq(ERC721Facet(address(diamond)).ownerOf(tokenId), address(this));
+        
         // Test transfer
         address recipient = address(0x123);
-        uint256 transferAmount = 1000 * 10**uint256(decimals);
-        assertTrue(ERC20Facet(address(diamond)).transfer(recipient, transferAmount), "Transfer failed");
-        assertEq(ERC20Facet(address(diamond)).balanceOf(recipient), transferAmount, "Incorrect recipient balance after transfer");
-        assertEq(ERC20Facet(address(diamond)).balanceOf(address(this)), initialSupply - transferAmount, "Incorrect sender balance after transfer");
-
+        vm.prank(address(this));
+        ERC721Facet(address(diamond)).transferFrom(address(this), recipient, tokenId);
+        assertEq(ERC721Facet(address(diamond)).balanceOf(recipient), 1, "Incorrect recipient balance after transfer");
+        assertEq(ERC721Facet(address(diamond)).balanceOf(address(this)), 0, "Incorrect sender balance after transfer");
+        assertEq(ERC721Facet(address(diamond)).ownerOf(tokenId), recipient, "Incorrect owner after transfer");
+        
         // Test approve and transferFrom
         address spender = address(0x456);
-        uint256 approvalAmount = 500 * 10**uint256(decimals);
-        assertTrue(ERC20Facet(address(diamond)).approve(spender, approvalAmount), "Approval failed");
-        assertEq(ERC20Facet(address(diamond)).allowance(address(this), spender), approvalAmount, "Incorrect allowance after approval");
-
-        uint256 transferFromAmount = 250 * 10**uint256(decimals);
+        vm.prank(recipient);
+        ERC721Facet(address(diamond)).approve(spender, tokenId);
+        assertEq(ERC721Facet(address(diamond)).getApproved(tokenId), spender, "Incorrect approval");
+        
         vm.prank(spender);
-        assertTrue(ERC20Facet(address(diamond)).transferFrom(address(this), recipient, transferFromAmount), "TransferFrom failed");
-        assertEq(ERC20Facet(address(diamond)).balanceOf(recipient), transferAmount + transferFromAmount, "Incorrect recipient balance after transferFrom");
-        assertEq(ERC20Facet(address(diamond)).balanceOf(address(this)), initialSupply - transferAmount - transferFromAmount, "Incorrect sender balance after transferFrom");
-        assertEq(ERC20Facet(address(diamond)).allowance(address(this), spender), approvalAmount - transferFromAmount, "Incorrect allowance after transferFrom");
+        ERC721Facet(address(diamond)).transferFrom(recipient, address(this), tokenId);
+        assertEq(ERC721Facet(address(diamond)).balanceOf(address(this)), 1, "Incorrect recipient balance after transferFrom");
+        assertEq(ERC721Facet(address(diamond)).balanceOf(recipient), 0, "Incorrect sender balance after transferFrom");
+        assertEq(ERC721Facet(address(diamond)).ownerOf(tokenId), address(this), "Incorrect owner after transferFrom");
 
     }
 
