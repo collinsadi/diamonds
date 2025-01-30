@@ -68,6 +68,18 @@ diamonds init
 
 ## Commands
 
+### Version Commands
+
+```bash
+# Check current version
+diamonds --version
+diamonds -v
+
+# Update to latest version
+diamonds update
+```
+
+
 ### Hardhat Commands
 
 If you scaffold with Hardhat, these commands will be available:

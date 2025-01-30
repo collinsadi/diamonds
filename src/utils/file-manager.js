@@ -25,6 +25,9 @@ const copyTemplateFiles = async (templateDir, name) => {
 
   try {
     await fs.copy(templateDir, targetDir);
+    // Ensure lib folder is created
+    const libDir = path.join(targetDir, "lib");
+    await fs.ensureDir(libDir); // Create lib folder if it doesn't exist
     console.log(`🚀 Project created successfully.`.green);
     console.log(`cd ${name}.`.green);
   } catch (err) {
