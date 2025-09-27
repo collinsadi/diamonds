@@ -6,17 +6,21 @@ const templateFolder = path.join(
   "..",
   "templates",
   "default",
-  "foundry"
+  "hardhat"
 );
 
-exports.scaffoldDefaultHardatTypeScript = (name) => {
+const copyTemplateFiles = require("../../utils/file-manager");
+
+exports.scaffoldDefaultHardHatTypeScript = (name) => {
+  copyTemplateFiles(path.join(templateFolder, "typescript"), name);
   console.log(
     `You want to Scaffold a Diamond Contract with the Default Hardhat Typescript  Template`
       .yellow
   );
 };
 
-exports.scaffoldDefaultHardatJavaScript = (name) => {
+exports.scaffoldDefaultHardHatJavaScript = (name) => {
+  copyTemplateFiles(path.join(templateFolder, "javascript"), name);
   console.log(
     `You want to Scaffold a Diamond Contract with the Default Hardhat Javascript  Template`
       .yellow
