@@ -7,10 +7,16 @@
     "type": "git",
     "url": "https://github.com/collinsadi/diamonds"
   },
-  "os": ["win32"],
-  "cpu": ["x64"],
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
   "bin": {
     "diamonds": "bin/diamonds.exe"
   },
-  "files": ["bin/diamonds.exe"]
+  "files": [
+    "bin/diamonds.exe"
+  ]
 }

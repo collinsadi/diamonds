@@ -7,7 +7,7 @@ license = "MIT"
 repository = "https://github.com/collinsadi/diamonds"
 keywords = ["eip2535", "diamond", "solidity", "ethereum", "scaffold"]
 categories = ["command-line-utilities", "development-tools"]
-
+readme = "../README.md"
 [[bin]]
 name = "diamonds"
 path = "src/main.rs"
