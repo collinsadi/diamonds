@@ -1,0 +1,28 @@
+[package]
+name = "diamondscaffold"
+version = "2.0.0"
+edition = "2024"
+description = "A CLI for scaffolding EIP-2535 Diamond Standard projects"
+license = "MIT"
+repository = "https://github.com/collinsadi/diamonds"
+keywords = ["eip2535", "diamond", "solidity", "ethereum", "scaffold"]
+categories = ["command-line-utilities", "development-tools"]
+
+[[bin]]
+name = "diamonds"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+dialoguer = { version = "0.11", features = ["fuzzy-select"] }
+console = "0.15"
+indicatif = "0.17"
+include_dir = "0.7"
+anyhow = "1"
+solang-parser = "0.3"
+regex = "1"
+
+[profile.release]
+strip = true
+lto = true
+opt-level = "z"
