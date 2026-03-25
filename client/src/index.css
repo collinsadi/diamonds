@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", "Fira Code", monospace;
+
+  --color-zinc-925: #111118;
+  --color-diamond: #a855f7;
+  --color-diamond-light: #c084fc;
+  --color-diamond-dim: rgba(168, 85, 247, 0.15);
+  --color-diamond-border: rgba(168, 85, 247, 0.3);
+}
+
+@layer base {
+  ::selection {
+    background-color: var(--color-diamond-dim);
+    color: var(--color-diamond-light);
+  }
+}
