@@ -1,0 +1,37 @@
+{
+  "name": "diamondscaffold",
+  "version": "2.0.0",
+  "description": "A CLI for scaffolding and converting EIP-2535 Diamond Standard smart contract projects",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collinsadi/diamonds"
+  },
+  "keywords": [
+    "eip2535",
+    "diamond",
+    "solidity",
+    "ethereum",
+    "scaffold",
+    "smart-contract",
+    "upgradeable",
+    "foundry",
+    "hardhat"
+  ],
+  "bin": {
+    "diamonds": "bin/diamonds.js"
+  },
+  "files": [
+    "bin/diamonds.js"
+  ],
+  "optionalDependencies": {
+    "diamondscaffold-darwin-arm64": "2.0.0",
+    "diamondscaffold-darwin-x64": "2.0.0",
+    "diamondscaffold-linux-x64": "2.0.0",
+    "diamondscaffold-linux-arm64": "2.0.0",
+    "diamondscaffold-win32-x64": "2.0.0"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
