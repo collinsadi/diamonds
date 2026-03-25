@@ -1,3 +1,40 @@
-test.js
-test.md
-node_modules/
+# Rust build artifacts
+v2/target/
+
+# Cargo lock is fine to commit for binaries, but ignore local debug artifacts
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.code-workspace
+
+# Environment
+.env
+.env.*
+
+# Internal docs (not for GitHub)
+DEMO.md
+DEPLOYMENT.md
+MIGRATION.md
+
+# Node (v1 artifacts)
+v1/node_modules/
+v1/.env
+
+# Foundry artifacts from test runs
+v2/test/
+v2/out/
+v2/cache/
+
+# npm platform binaries (populated by CI, not committed)
+npm/diamondscaffold-*/bin/diamonds
+npm/diamondscaffold-*/bin/diamonds.exe
+npm/diamondscaffold-*/*.tgz
+npm/diamondscaffold/*.tgz

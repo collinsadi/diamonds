@@ -1,135 +1,129 @@
 # diamondscaffold
 
-**diamondscaffold** is a CLI tool that helps developers scaffold an EIP-2535 diamond structure with ease. Users can choose between Hardhat or Foundry as their development environment, and they can select between templates like "ERC20", "ERC721", or a default Diamond template to kickstart their smart contract development.
+A fast CLI for scaffolding and converting [EIP-2535 Diamond Standard](https://eips.ethereum.org/EIPS/eip-2535) smart contract projects.
+
+Built in Rust. Distributed via npm, crates.io, and standalone binaries.
 
 ![Screenshot](./image.png)
 
 ## Features
 
-- Scaffold **EIP-2535 Diamond** architecture.
-- Choose between **Hardhat** or **Foundry** frameworks.
-- Select from multiple templates: **ERC20**, **ERC721**, and a **default** Diamond template.
-- Option to scaffold in **JavaScript** or **TypeScript** when using Hardhat.
-- Install project dependencies automatically when using Hardhat.
+- **Scaffold** a full Diamond project in seconds — contracts, tests, deploy scripts, and config
+- **Convert** an existing Solidity contract into a Diamond Standard project automatically
+- **Foundry** and **Hardhat** support (JavaScript and TypeScript)
+- **Three templates**: Default, ERC20, and ERC721
+- Optional `git init` and dependency installation
+- Single binary — no runtime dependencies
 
 ## Installation
 
-You can install the package globally via npm to use it as a CLI tool.
+### npm (recommended)
 
 ```bash
 npm install -g diamondscaffold
 ```
 
-## Usage
+### Cargo (from source)
 
-Once installed, use the `diamonds init` command to scaffold an EIP-2535 Diamond structure.
+```bash
+cargo install diamondscaffold
+```
 
-### Basic Command
+### GitHub Releases
+
+Download prebuilt binaries for macOS, Linux, and Windows from [Releases](https://github.com/collinsadi/diamonds/releases).
+
+## Quick Start
+
+### Scaffold a new Diamond project
 
 ```bash
 diamonds init
 ```
 
-This command will prompt you with several questions to help set up your project. Here's the sequence of questions asked:
+You'll be guided through an interactive prompt:
 
-1. **Project Name**: The name of your project (default is `my-app`).
-2. **Template**: Choose a template to scaffold: `Default`, `ERC20`, or `ERC721`.
-3. **Framework**: Choose between `Foundry` or `Hardhat`.
-4. **Language** (only for Hardhat): Choose between `JavaScript` or `TypeScript`.
-5. **Install Dependencies** (only for Hardhat): Option to install dependencies automatically, provided you have an active internet connection.
+1. **Project name** — defaults to `diamond-project`
+2. **Template** — Default, ERC20, or ERC721
+3. **Framework** — Foundry or Hardhat
+4. **Language** (Hardhat only) — JavaScript or TypeScript
+5. **Install dependencies** — optional
+6. **Initialize git** — optional
 
-### Example
-
-```bash
-diamonds init
-```
-
-During the initialization, you will be prompted with questions like:
-
-```
-📝 What is the name of your project? (default: my-app)
-📑  What Template would you like to scaffold? (choices: Default, ERC20, ERC721)
-🔧 Which framework would you like to use? (choices: Foundry, Hardhat)
-📚 Which language do you want to use? (choices: JavaScript, TypeScript)
-Do you want to install project dependencies? (only for Hardhat)
-```
-
-To scaffold a diamond project using **Hardhat**, **ERC20**, and **TypeScript** with automatic dependency installation:
+You can also pass a project name directly:
 
 ```bash
-diamonds init
+diamonds init my-token
 ```
 
-### Available Templates
-
-1. **ERC20**: A diamond contract implementing the ERC20 token standard.
-2. **ERC721**: A diamond contract implementing the ERC721 NFT standard.
-3. **Default**: A basic diamond structure with no additional functionality, providing a clean slate to start with.
-
-## Commands
-
-### Version Commands
+### Convert an existing contract to Diamond Standard
 
 ```bash
-# Check current version
-diamonds --version
-diamonds -v
-
-# Update to latest version
-diamonds update
+diamonds convert MyContract.sol
 ```
 
+This parses your Solidity file and generates a complete Diamond project:
 
-### Hardhat Commands
+- `LibAppStorage.sol` — storage library extracted from state variables
+- `{Name}Facet.sol` — your contract logic rewritten as a facet
+- `I{Name}Facet.sol` — interface for the facet
+- `DiamondInit.sol` — initializer derived from your constructor
+- Deployment test with selector generation
+- Full project config (foundry.toml, .gitmodules, etc.)
 
-If you scaffold with Hardhat, these commands will be available:
+Options:
 
-- Compile the project:
+```bash
+diamonds convert MyContract.sol --output my-diamond  # custom output dir
+diamonds convert MyContract.sol --framework hardhat   # use Hardhat instead of Foundry
+```
 
-  ```bash
-  npx hardhat compile
-  ```
+## Templates
 
-- Run tests:
+| Template | Description |
+|----------|-------------|
+| **Default** | Clean Diamond structure — DiamondCut, DiamondLoupe, Ownership facets |
+| **ERC20** | Diamond with a full ERC20 token facet, interfaces, and tests |
+| **ERC721** | Diamond with a full ERC721 NFT facet, interfaces, and tests |
 
-  ```bash
-  npx hardhat test
-  ```
+## Post-Scaffold Commands
 
-- Deploy the contract:
-  ```bash
-  npx hardhat run scripts/deploy.js
-  ```
+### Foundry
 
-### Foundry Commands
+```bash
+forge build       # compile
+forge test        # run tests
+```
 
-If you scaffold with Foundry, these commands will be available:
+### Hardhat
 
-- Compile the project:
+```bash
+npx hardhat compile                  # compile
+npx hardhat test                     # run tests
+npx hardhat run scripts/deploy.js    # deploy (JS)
+npx hardhat run scripts/deploy.ts    # deploy (TS)
+```
 
-  ```bash
-  forge build
-  ```
+## Project Structure
 
-- Run tests:
+```
+diamonds/
+├── v1/                  # Legacy Node.js CLI (archived)
+├── v2/                  # Rust CLI source
+│   ├── src/             # CLI modules (main, banner, prompt, scaffold, convert)
+│   ├── templates/       # Embedded project templates
+│   └── Cargo.toml
+├── npm/                 # npm distribution packages
+├── scripts/             # Release and build automation
+└── .github/workflows/   # CI/CD
+```
 
-  ```bash
-  forge test
-  ```
+## Contributing
 
-- Deploy the contract:
-  ```bash
-  forge script <script-file> --broadcast
-  ```
+Contributions are welcome. Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before opening a PR.
 
-## Contribution
-
-Contributions to **diamondscaffold** are welcome! If you'd like to contribute checkout:
-
-1. [Contribution guildlines](https://github.com/collinsadi/diamonds/blob/main/CONTRIBUTION_GUIDELINES.md)  
-2. [Git guildlines](https://github.com/collinsadi/diamonds/blob/main/GIT_GUIDELINES.md)  
-3. [Issues guildlines](https://github.com/collinsadi/diamonds/blob/main/ISSUES_GUIDELINES.md)  
+If you're using an AI coding assistant, also review [AI_POLICY.md](./AI_POLICY.md) for guidelines on AI-assisted contributions.
 
 ## License
 
-This package is licensed under the MIT License. See the [LICENSE](./LICENSE) file for more information.
+MIT — see [LICENSE.md](./LICENSE.md).

@@ -1,0 +1,16 @@
+{
+  "name": "diamondscaffold-darwin-x64",
+  "version": "2.0.0",
+  "description": "Diamonds CLI binary for macOS x64 (Intel)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/collinsadi/diamonds"
+  },
+  "os": ["darwin"],
+  "cpu": ["x64"],
+  "bin": {
+    "diamonds": "bin/diamonds"
+  },
+  "files": ["bin/diamonds"]
+}
